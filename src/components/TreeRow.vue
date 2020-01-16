@@ -18,9 +18,15 @@
         </span>
       </span>
       <i
-        v-if="options.events.selected.state == true"
+        v-if="options.events.selected.state == true && node.nodes != undefined && node.nodes.length > 0"
         @click.stop="toggleEvent('selected', node)"
         :class="expanded ? styles.selectIcon.active.class : styles.selectIcon.class"
+        :style="selected ? styles.selectIcon.active.style : styles.selectIcon.style">
+      </i>
+      <i
+        v-if="options.events.selected.state == true && node.nodes == undefined && node.nodes.length < 0"
+        @click.stop="toggleEvent('selected', node)"
+        class="far fa-file"
         :style="selected ? styles.selectIcon.active.style : styles.selectIcon.style">
       </i>
       <input
