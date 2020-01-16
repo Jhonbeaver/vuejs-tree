@@ -25,7 +25,7 @@
             <font-awesome-icon
       v-if="options.events.selected.state == true && node.nodes == undefined"
       @click.stop="toggleEvent('selected', node)"
-      :icon="fa-file"
+      icon="fa-file"
       :style="selected ? styles.selectIcon.active.style : styles.selectIcon.style"/>
       <!-- <i
         v-if="options.events.selected.state == true && node.nodes != undefined && node.nodes.length > 0"
