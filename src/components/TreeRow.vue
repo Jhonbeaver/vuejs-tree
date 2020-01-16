@@ -17,7 +17,17 @@
           class="small-tree-indent">
         </span>
       </span>
-      <i
+      <font-awesome-icon
+      v-if="options.events.selected.state == true && node.nodes != undefined && node.nodes.length > 0"
+      @click.stop="toggleEvent('selected', node)"
+      :icon="expanded ? styles.selectIcon.active.class : styles.selectIcon.class"
+      :style="selected ? styles.selectIcon.active.style : styles.selectIcon.style"/>
+            <font-awesome-icon
+      v-if="options.events.selected.state == true && node.nodes == undefined"
+      @click.stop="toggleEvent('selected', node)"
+      :icon="fa-file"
+      :style="selected ? styles.selectIcon.active.style : styles.selectIcon.style"/>
+      <!-- <i
         v-if="options.events.selected.state == true && node.nodes != undefined && node.nodes.length > 0"
         @click.stop="toggleEvent('selected', node)"
         :class="expanded ? styles.selectIcon.active.class : styles.selectIcon.class"
@@ -28,7 +38,7 @@
         @click.stop="toggleEvent('selected', node)"
         class="far fa-file"
         :style="selected ? styles.selectIcon.active.style : styles.selectIcon.style">
-      </i>
+      </i> -->
       <input
         type="checkbox"
         name="item[]"
