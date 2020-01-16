@@ -38,6 +38,7 @@
         @click.stop="toggleEvent('checked', node)"
       >
       <span
+        v-if="node.nodes == undefined &&node.nodes.length > 0"
         data-toggle="tooltip"
         data-placement="top"
         :title="node.definition"
@@ -45,6 +46,17 @@
         v-bind:class="{'selected': selected}"
         :style="selected ? styles.text.active.style : styles.text.style"
         @click.stop="options.events.editableName.state && toggleEvent('editableName', node)" >
+        {{ node.text }}
+      </span>
+      <span
+        v-else
+        data-toggle="tooltip"
+        data-placement="top"
+        :title="node.definition"
+        class="capitalize"
+        v-bind:class="{'selected': selected}"
+        :style="selected ? styles.text.active.style : styles.text.style"
+        @click="toggleEvent('selected', node, 'node', $event)" >
         {{ node.text }}
       </span>
       <span
