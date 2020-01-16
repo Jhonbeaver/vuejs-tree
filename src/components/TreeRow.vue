@@ -38,7 +38,7 @@
         @click.stop="toggleEvent('checked', node)"
       >
       <span
-        v-if="node.nodes == undefined &&node.nodes.length > 0"
+        v-if="node.nodes != undefined && node.nodes.length > 0"
         data-toggle="tooltip"
         data-placement="top"
         :title="node.definition"
