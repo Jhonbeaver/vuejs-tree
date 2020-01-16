@@ -426,7 +426,7 @@ li {
 .icon_parent {
   background: transparent;
   width: 20px;
-  height: 20px;
+  height: 25px;
   display: inline-block;
   vertical-align: middle;
   text-align: center;
