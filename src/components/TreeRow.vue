@@ -18,15 +18,17 @@
         </span>
       </span>
       <font-awesome-icon
-      v-if="options.events.selected.state == true && node.nodes != undefined && node.nodes.length > 0"
-      @click.stop="toggleEvent('selected', node)"
-      :icon="expanded ? styles.selectIcon.active.class : styles.selectIcon.class"
-      :style="selected ? styles.selectIcon.active.style : styles.selectIcon.style"/>
-            <font-awesome-icon
-      v-if="options.events.selected.state == true && node.nodes == undefined"
-      @click.stop="toggleEvent('selected', node)"
-      icon="coins"
-      :style="selected ? styles.selectIcon.active.style : styles.selectIcon.style"/>
+        v-if="options.events.selected.state == true && node.nodes != undefined && node.nodes.length > 0"
+        @click.stop="toggleEvent('selected', node)"
+        :icon="expanded ? styles.selectIcon.active.class : styles.selectIcon.class"
+        :style="selected ? styles.selectIcon.active.style : styles.selectIcon.style"
+      />
+      <font-awesome-icon
+        v-if="options.events.selected.state == true && node.nodes == undefined"
+        @click.stop="toggleEvent('selected', node)"
+        icon="coins"
+        :style="selected ? styles.selectIcon.active.style : styles.selectIcon.style"
+      />
       <!-- <i
         v-if="options.events.selected.state == true && node.nodes != undefined && node.nodes.length > 0"
         @click.stop="toggleEvent('selected', node)"
@@ -73,28 +75,43 @@
         v-if="options.addNode.state == true"
         @click.stop="options.addNode.fn(node)"
         class="icon_parent">
-        <i
+        <!-- <i
           v-bind:class="[{'icon-hover': options.addNode.appearOnHover}, styles.addNode.class]"
           :style="styles.addNode.style">
-        </i>
+        </i> -->
+        <font-awesome-icon
+          :icon="styles.addNode.class"
+          v-bind:class="[{'icon-hover': options.addNode.appearOnHover}, styles.addNode.class]"
+          :style="styles.addNode.style"
+        />
       </span>
       <span
         v-if="options.editNode.state == true"
         @click.stop="options.editNode.fn(node)"
         class="icon_parent">
-        <i
+        <!-- <i
         v-bind:class="[{'icon-hover': options.editNode.appearOnHover}, styles.editNode.class]"
         :style="styles.editNode.style">
-        </i>
+        </i> -->
+        <font-awesome-icon
+          :icon="styles.editNode.class"
+          v-bind:class="[{'icon-hover': options.editNode.appearOnHover}]"
+          :style="styles.editNode.style"
+        />
       </span>
       <span
         v-if="options.deleteNode.state == true"
         @click.stop="options.deleteNode.fn(node)"
         class="icon_parent">
-        <i
+        <!-- <i
         v-bind:class="[{'icon-hover': options.deleteNode.appearOnHover}, styles.deleteNode.class]"
         :style="styles.deleteNode.style">
-        </i>
+        </i> -->
+        <font-awesome-icon
+          :icon="styles.deleteNode.class"
+          v-bind:class="[{'icon-hover': options.deleteNode.appearOnHover}]"
+          :style="styles.deleteNode.style"
+        />
       </span>
       <span v-if="options.showTags == true && node.tags">
         <span
@@ -150,21 +167,21 @@ export default {
           class: 'expanded_icon'
         },
         addNode: {
-          class: 'add_icon',
+          class: 'plus',
           style: {
-            color: '#007AD5'
+            color: '#1366DF'
           }
         },
         editNode: {
-          class: 'edit_icon',
+          class: 'pen',
           style: {
-            color: '#007AD5'
+            color: '#1366DF'
           }
         },
         deleteNode: {
-          class: 'delete_icon',
+          class: 'times',
           style: {
-            color: '#EE5F5B'
+            color: '#DF2C13'
           }
         },
         selectIcon: {
